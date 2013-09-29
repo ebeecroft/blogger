@@ -1,0 +1,22 @@
+<h1>Listing journals</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+<!---    <th></th>---->
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @journals.each do |journal| %>
+  <tr>
+    <td><%=link_to journal.title, journal %></td>
+    <td><%= button_to "Edit", method: :get, edit_journal_path(journal) %></td>
+    <td><%= button_to 'Delete', journal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Journal', new_journal_path %>
